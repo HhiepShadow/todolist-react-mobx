@@ -45,25 +45,25 @@ The application will be available at `http://localhost:5173`.
 
 The project structure is as follows:
 
-todo-list-app/
-├── src/
-│ ├── components/
-│ │ ├── TodoForm.tsx
-│ │ ├── TodoItem.tsx
-│ │ └── TodoList.tsx
-│ ├── stores/
-│ │ ├── TodoStore.ts
-│ │ └── RootStore.ts
-│ ├── utils/
-│ │ ├── types.ts
-│ │ └── helpers.ts
-│ ├── App.tsx
-│ └── main.tsx
-├── .gitignore
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-└── README.md
+todo-list-app/<br />
+├── src/<br />
+│ ├── components/<br />
+│ │ ├── TodoForm.tsx<br />
+│ │ ├── TodoItem.tsx<br />
+│ │ └── TodoList.tsx<br />
+│ ├── stores/<br />
+│ │ ├── TodoStore.ts<br />
+│ │ └── RootStore.ts<br />
+│ ├── utils/<br />
+│ │ ├── types.ts<br />
+│ │ └── helpers.ts<br />
+│ ├── App.tsx<br />
+│ └── main.tsx<br />
+├── .gitignore<br />
+├── package.json<br />
+├── tsconfig.json<br />
+├── vite.config.ts<br />
+└── README.md<br />
 
 ## Contributing
 
