@@ -1,13 +1,9 @@
 import { TextField } from "@mui/material";
-import { Dispatch, SetStateAction } from "react";
+import { useStore } from "../context/useStore";
 
-const Search = ({
-  search,
-  setSearch,
-}: {
-  search: string;
-  setSearch: Dispatch<SetStateAction<string>>;
-}) => {
+const Search = () => {
+  const store = useStore();
+
   return (
     <div className="search">
       <TextField
@@ -16,9 +12,11 @@ const Search = ({
           margin: "5px auto",
         }}
         type="text"
-        value={search}
         placeholder="Search"
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={(e) => {
+            store.todos.setSearch(e.target.value);
+            console.log(store.todos.search);
+        }}
       />
     </div>
   );

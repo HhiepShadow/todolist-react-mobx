@@ -41,30 +41,6 @@ npm run dev
 
 The application will be available at `http://localhost:5173`.
 
-## Project Structure
-
-The project structure is as follows:
-
-todo-list-app/<br />
-├── src/<br />
-│ ├── components/<br />
-│ │ ├── TodoForm.tsx<br />
-│ │ ├── TodoItem.tsx<br />
-│ │ └── TodoList.tsx<br />
-│ ├── stores/<br />
-│ │ ├── TodoStore.ts<br />
-│ │ └── RootStore.ts<br />
-│ ├── utils/<br />
-│ │ ├── types.ts<br />
-│ │ └── helpers.ts<br />
-│ ├── App.tsx<br />
-│ └── main.tsx<br />
-├── .gitignore<br />
-├── package.json<br />
-├── tsconfig.json<br />
-├── vite.config.ts<br />
-└── README.md<br />
-
 ## Contributing
 
 If you find any issues or have suggestions for improvements, feel free to create a new issue or submit a pull request.

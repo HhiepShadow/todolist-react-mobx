@@ -2,20 +2,25 @@ import { Button, TextField } from "@mui/material";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Todo } from "../models/Todo";
-import { useStore } from "../context/Context";
+import { useStore } from "../context/useStore";
 import { observer } from "mobx-react-lite";
 
 const Update = observer(() => {
   const store = useStore();
   const { id } = useParams();
   const navigate = useNavigate();
-  const [updatedTodo, setUpdatedTodo] = useState<string>("");
   const todo: Todo | undefined = store.todos.todos.find(
     (todo) => todo.id.toString() === id
   );
 
+  const initialTodo: string = todo ? todo.task : "";
+
+  const [updatedTodo, setUpdatedTodo] = useState<string>(initialTodo);
+
   const handleUpdate = (id: number) => {
-    store.todos.updateTodo(id, updatedTodo);
+    if (updatedTodo !== "") {
+      store.todos.updateTodo(id, updatedTodo);
+    }
     navigate("/");
   };
 
@@ -29,7 +34,6 @@ const Update = observer(() => {
           type="text"
           required
           value={updatedTodo}
-          placeholder={todo && todo.task}
           onChange={(e) => setUpdatedTodo(e.target.value)}
         />
         <Button
@@ -43,6 +47,30 @@ const Update = observer(() => {
           onClick={() => todo && handleUpdate(Number(id))}
         >
           Update
+        </Button>
+        <Button
+          fullWidth
+          type="button"
+          variant="contained"
+          color="error"
+          style={{
+            marginTop: "10px",
+          }}
+          onClick={() => todo && setUpdatedTodo(todo?.task)}
+        >
+          Reset
+        </Button>
+        <Button
+          fullWidth
+          type="button"
+          variant="contained"
+          color="primary"
+          style={{
+            marginTop: "10px",
+          }}
+          onClick={() => navigate("/")}
+        >
+          Cancel
         </Button>
       </form>
     </div>

@@ -1,7 +1,7 @@
 import { Button, TextField } from "@mui/material";
 import { observer } from "mobx-react-lite";
 import { FormEventHandler, useState } from "react";
-import { useStore } from "../context/Context";
+import { useStore } from "../context/useStore";
 import { useNavigate } from "react-router-dom";
 
 const Add = observer(() => {

@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import { observer } from "mobx-react-lite";
 import { useNavigate } from "react-router-dom";
-import { useStore } from "../context/Context";
+import { useStore } from "../context/useStore";
 
 const BottomBtns = observer(() => {
     const navigate = useNavigate();

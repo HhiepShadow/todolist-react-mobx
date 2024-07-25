@@ -3,16 +3,20 @@ import { Todo } from "../models/Todo";
 
 export default class TodosStore {
   todos: Todo[] = [];
+  search: string = "";
 
   constructor(todos: Todo[]) {
     makeObservable(this, {
       todos: observable,
+      search: observable,
       getTodos: computed,
       addTodo: action,
       deleteTodo: action,
       toggleTodo: action,
       getUnfinishedTodosCount: computed,
       clearTodosList: action,
+      filterTodo: computed,
+      setSearch: action,
     });
     this.todos = todos;
   }
@@ -60,6 +64,20 @@ export default class TodosStore {
         : todo
     );
     this.sync();
+  }
+
+  get filterTodo(): Todo[] {
+    let searchResults: Todo[] = this.todos;
+    if (this.search) {
+      searchResults = this.todos.filter((todo) =>
+        todo.task.toLowerCase().includes(this.search.toLowerCase())
+      );
+    }
+    return searchResults;
+  }
+
+  setSearch(search: string) {
+    this.search = search;
   }
 
   get getUnfinishedTodosCount() {
